@@ -1,5 +1,7 @@
+{% load bootstrap3 %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     {%if title%}
@@ -8,18 +10,20 @@
     <title>My Gallery</title>
     {%endif%}
 
-    {% block style %}
-        {%bootstra_css%}
-    {%endblock%}
-
+    {% block styles %}
+    {% bootstrap_css %}
+    {% endblock %}
 
 </head>
+
 <body>
-    
+    {%include 'navbar.html' %}
+
     {% block scripts %}
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-     {% bootstrap_javascript %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    {% bootstrap_javascript %}
     {% endblock %}
-    
+
 </body>
+
 </html>
