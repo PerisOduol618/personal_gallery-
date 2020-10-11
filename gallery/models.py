@@ -5,7 +5,7 @@ class Photos(models.Model):
     photo_description = models.TextField()
     photo_location = models.ForeignKey('Location', on_delete=models.SET_NULL, default = '', null=True)
     photo_category = models.ForeignKey('Category', on_delete=models.CASCADE, default='')
-    Photo = models.ImageField(upload_to = 'images/', default='image.jpg')
+    photo = models.ImageField(upload_to = 'images/', default='image.jpg')
 
     def __str__(self):
         return self.photo_name
@@ -24,8 +24,8 @@ class Location(models.Model):
         self.save()
 
 
-    # def delete_location_name(self):
-    #     self.delete()
+    def delete_location_name(self):
+        self.delete()
 
     
 
