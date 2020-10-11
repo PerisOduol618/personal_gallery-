@@ -10,7 +10,10 @@ class Photos(models.Model):
     def __str__(self):
         return self.photo_name
     
-    def save_image(self):
+    def save_photo(self):
+        self.save()
+
+    def delete_photo(self):
         self.save()
     
     
@@ -23,17 +26,15 @@ class Location(models.Model):
     def save_location_name(self):
         self.save()
 
-
     def delete_location_name(self):
         self.delete()
 
     
-
+    
  
 
 class Category(models.Model):
     category_name = models.CharField(max_length = 30)
-
 
     def __str__(self):
         return self.category_name
