@@ -1,0 +1,18 @@
+
+<h1 >
+    fjc
+</h1>
+{% for photos in photo %}
+<ul >
+    <li>
+        {{photos.photo_name}}
+    </li>
+    <li>
+        {{photos.photo_description}}
+    </li>
+    
+</ul>
+<img src="{{photos.photo.url}}" class="img-responsive" alt="cant show">
+<!-- <img src="/images/toch.jpeg" width="50%" height="50%" alt="force show"> -->
+
+{% endfor %}
