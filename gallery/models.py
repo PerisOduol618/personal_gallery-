@@ -9,6 +9,10 @@ class Photos(models.Model):
 
     def __str__(self):
         return self.photo_name
+
+    # def all_photos(cls):
+    #     all_pics = Photos.objects.all()
+    #     return all_pics
     
     def save_photo(self):
         self.save()
