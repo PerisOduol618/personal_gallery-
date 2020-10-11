@@ -68,7 +68,22 @@ class CategoryTestClass(TestCase):
         self.Tour.save_category_name()
 
 
+    def tearDown(self):
+        Category.objects.all().delete()
+
     def test_instance(self):
         self.assertTrue(isinstance(self.Tour, Category))
+
+    def test_save_category(self):
+        self.test_category = Category(category_name = 'Business')
+        self.test_category.save_category_name()
+
+    def test_delete_category(self):
+        self.test_category = Category(category_name = 'Business')
+        self.test_category.save_category_name()
+        self.test_category.delete_category_name()
+
+
+
     
     

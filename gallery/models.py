@@ -36,6 +36,13 @@ class Location(models.Model):
 class Category(models.Model):
     category_name = models.CharField(max_length = 30)
 
+    def save_category_name(self):
+        self.save()
+
+    def delete_category_name(self):
+        self.delete()
+
+
     def __str__(self):
         return self.category_name
 
