@@ -1,14 +1,13 @@
-
+{% extends 'base.html' %}
 {% block content %}
 <div class="container">
-    <h3>
-        PEEENYYOOOOO
-    </h3>
+
     <div class='row'>
         {% if photo %}
-            <p>Found {{photo|length}} of searched term {{message}} </p>
+
+        <h2 class="jumbotron text-center"><strong>Found {{photo|length}} of searched term {{message}}</strong> </h2>
         {%else%}
-            <p class="jumbotron"> Found 0 photos for the search term {{message}}</p>
+        <h3 class="jumbotron"><strong>Found 0 photos for the search term {{message}}</strong> </h3>
 
         {%endif%}
 
@@ -17,21 +16,30 @@
 
     {%if photo %}
     {%for photos in photo%}
-    <div class="">
-        <ul>
-            <li>
-                {{photos.name}}
-            </li>
-            <li>
-                {{photos.photo_description}}
-            </li>
-            <img src="{{photos.photo.url}}" alt="mapicha tu">
-        </ul>
 
 
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <a href="" data-toggle="modal" data-target="#staticBackdrop{{photos.id}}">
+                <img src="{{photos.photo.url}}" class="img-responsive styled" alt="cant show"></a>
+            </div>
+            <div class="panel-footer text-center"><b>Name:</b>{{photos.name}}</div>
+            <div class="panel-footer text-center"><b>Description:</b>{{photos.photo_description}}</div>
+        </div>
     </div>
-    {% endfor %}
-    {% endif %}
+
+
+</div>
+
+
+</div>
+
+
+
+</div>
+{% endfor %}
+{% endif %}
 
 </div>
 

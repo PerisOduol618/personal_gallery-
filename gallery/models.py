@@ -24,7 +24,7 @@ class Photos(models.Model):
     
 
     def __str__(self):
-        return self.photo_name
+        return self.name
     
     
 class Location(models.Model):
