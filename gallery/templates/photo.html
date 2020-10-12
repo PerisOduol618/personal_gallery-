@@ -1,18 +1,51 @@
+{% extends 'base.html' %}
 
-<h1 >
-    fjc
-</h1>
-{% for photos in photo %}
-<ul >
-    <li>
-        {{photos.photo_name}}
-    </li>
-    <li>
-        {{photos.photo_description}}
-    </li>
-    
-</ul>
-<img src="{{photos.photo.url}}" class="img-responsive" alt="cant show">
-<!-- <img src="/images/toch.jpeg" width="50%" height="50%" alt="force show"> -->
+{% block content%}
+<div class="container-fluid">
+    {% for photos in photo %}
+    <div class="col-md-3">
 
-{% endfor %}
+        <a href="" data-toggle="modal" data-target="#staticBackdrop{{photos.id}}"><img src="{{photos.photo.url}}"
+                class="img-responsive" alt="cant show"></a>
+
+        <!-- Modal -->
+        <div class="modal fade" id="staticBackdrop{{photos.id}}" data-backdrop="static" data-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+
+                        <h3 class="modal-title" id="staticBackdropLabel">{{photos.name}}</h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <div class="modal-body">
+                        <img src="{{photos.photo.url}}" class="img-responsive" alt="cant show">
+                    </div>
+
+                    <div class="modal-footer">
+                        <div class="col-md-6">
+                            <p><b>Description:</b> {{photos.photo_description}}</p>
+                        </div>
+
+                        <div class="col-md-6">
+                            <p><b>Location</b> {{photos.photo_location}}</p>
+                        </div>
+
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+</div>
+
+{% endblock %}

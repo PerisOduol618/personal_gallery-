@@ -1,14 +1,11 @@
 from django.db import models
 
 class Photos(models.Model):
-    photo_name =models.CharField(max_length = 30)
+    name =models.CharField(max_length = 30)
     photo_description = models.TextField()
     photo_location = models.ForeignKey('Location', on_delete=models.SET_NULL, default = '', null=True)
     photo_category = models.ForeignKey('Category', on_delete=models.CASCADE, default='')
     photo = models.ImageField(upload_to = 'images/', default='image.jpg')
-
-    def __str__(self):
-        return self.photo_name
 
     # def all_photos(cls):
     #     all_pics = Photos.objects.all()
@@ -19,6 +16,15 @@ class Photos(models.Model):
 
     def delete_photo(self):
         self.save()
+
+    @classmethod
+    def search_by_photo_category(cls,search_term):
+        photo = cls.objects.filter(name__icontains = search_term)
+        return photo
+    
+
+    def __str__(self):
+        return self.photo_name
     
     
 class Location(models.Model):
@@ -33,9 +39,6 @@ class Location(models.Model):
     def delete_location_name(self):
         self.delete()
 
-    
-    
- 
 
 class Category(models.Model):
     category_name = models.CharField(max_length = 30)
@@ -46,7 +49,11 @@ class Category(models.Model):
     def delete_category_name(self):
         self.delete()
 
-
     def __str__(self):
         return self.category_name
+
+
+    
+
+    
 

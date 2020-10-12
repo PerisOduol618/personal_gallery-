@@ -1,0 +1,38 @@
+
+{% block content %}
+<div class="container">
+    <h3>
+        PEEENYYOOOOO
+    </h3>
+    <div class='row'>
+        {% if photo %}
+            <p>Found {{photo|length}} of searched term {{message}} </p>
+        {%else%}
+            <p class="jumbotron"> Found 0 photos for the search term {{message}}</p>
+
+        {%endif%}
+
+    </div>
+
+
+    {%if photo %}
+    {%for photos in photo%}
+    <div class="">
+        <ul>
+            <li>
+                {{photos.name}}
+            </li>
+            <li>
+                {{photos.photo_description}}
+            </li>
+            <img src="{{photos.photo.url}}" alt="mapicha tu">
+        </ul>
+
+
+    </div>
+    {% endfor %}
+    {% endif %}
+
+</div>
+
+{% endblock %}

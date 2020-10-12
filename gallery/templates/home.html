@@ -1,6 +1,8 @@
-<!-- <h1>Welcome to my gallery</h1>
- -->
  {% extends 'base.html' %}
- <h1>
-     Welcome
- </h1>
+
+ {%block content%}
+ {{ block.super}}
+
+<h1>My Gallery</h1>
+<a href="{% url 'photos' %}" class="btn btn-info btn-small">View Photos</a>
+ {%endblock%}

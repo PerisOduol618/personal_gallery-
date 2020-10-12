@@ -39,7 +39,7 @@ class PhotosTestClass(TestCase):
         self. new_category = Category(category_name = 'Adventure')
         self. new_category.save()
 
-        self. new_car = Photos(photo_name = 'Benz', photo_description = 'Nice photo', photo_location = self.new_location, photo_category = self.new_category, photo = 'image.jpeg' )
+        self. new_car = Photos(name = 'Benz', photo_description = 'Nice photo', photo_location = self.new_location, photo_category = self.new_category, photo = 'image.jpeg' )
         self. new_car.save()
 
     def tearDown(self):
@@ -82,6 +82,9 @@ class CategoryTestClass(TestCase):
         self.test_category = Category(category_name = 'Business')
         self.test_category.save_category_name()
         self.test_category.delete_category_name()
+
+
+
 
 
 
