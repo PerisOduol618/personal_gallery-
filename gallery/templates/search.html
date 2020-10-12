@@ -37,7 +37,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
 
-                        <h3 class="modal-title" id="staticBackdropLabel text-center">{{photos.name}}</h3>
+                        <h3 class="modal-title" id="staticBackdropLabel text-center">{{photos}}</h3>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -62,7 +62,7 @@
 
                     <div class="modal-footer row">
                         <div class="col-md-8">
-                            <input type="text" value="https://perisgallery.herokuapp.com/media/{{photos.photo}}" id="myInput">
+                            <input type="text" value="https://perisgallery.herokuapp.com/media/{{photos.id}}" id="myInput">
                             <button type="button" class="btn btn-info" onclick="myFunction()">Copy Link</button>
                         </div>
                         <div class="col-md-4">
