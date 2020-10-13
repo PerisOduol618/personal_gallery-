@@ -30,7 +30,7 @@ This is an online platform where I display my photos for others to see.A user ca
 
 #### Clone the Repo and rename it to suit your needs.
 ```bash
-git clone https://github.com/cynthiaoduol/Gallery.git
+git clone https://github.com/PerisOduol618/personal_gallery-.git
 ```
 #### Initialize git and add the remote repository
 ```bash
