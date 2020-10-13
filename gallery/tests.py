@@ -11,6 +11,10 @@ class LocationTestClass(TestCase):
     def setUp(self):
         self.Kinoo = Location(location_name='Kinoo')
         self.Kinoo.save_location_name()
+
+
+    def tearDown(self):
+        Location.objects.all().delete()
  
     def test_instance(self):
         self.assertTrue(isinstance(self.Kinoo, Location))
@@ -21,6 +25,12 @@ class LocationTestClass(TestCase):
         print(Locations)
         self.assertTrue(len(Locations)==1)
 
+    def test_update_location(self):
+        new_location.update_location(self.location.id,new_location_name)
+        updated_location = Location.objects.filter(location_name='Kasrani')
+        self.assertTrue(len(updated_location) > 0)
+
+
     def test_delete_method(self):
         self.Kinoo.delete_location_name()
         Locations = Location.objects.all()
@@ -28,8 +38,7 @@ class LocationTestClass(TestCase):
         self.assertTrue(len(Locations)==0)
         
 
-    def tearDown(self):
-        Location.objects.all().delete()
+    
 
 class PhotosTestClass(TestCase):
     def setUp(self):
@@ -54,13 +63,12 @@ class PhotosTestClass(TestCase):
     def test_save_car(self):
         self.new_car.save_photo()
         photo = Photos.objects.all()
-        # self.assertTrue(len(image) > 0)
+      
         
     def test_delete_car(self):
         self.new_car.save_photo()
         self.new_car.delete_photo()
-        # photo = photo.objects.all()
-        # self.assertTrue(len(photo) == 0)
+       
 
 class CategoryTestClass(TestCase):
     def setUp(self):
@@ -77,6 +85,7 @@ class CategoryTestClass(TestCase):
     def test_save_category(self):
         self.test_category = Category(category_name = 'Business')
         self.test_category.save_category_name()
+
 
     def test_delete_category(self):
         self.test_category = Category(category_name = 'Business')
